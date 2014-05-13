@@ -7,7 +7,7 @@ class CpCssPlugin extends BasePlugin
 	public function init()
 	{
 		parent::init();
-		if ($this->_isCp()) {
+		if (craft()->request->isCpRequest()) {
 			$this->_renderCss();
 		}
 	}
@@ -19,7 +19,7 @@ class CpCssPlugin extends BasePlugin
 
 	public function getVersion()
 	{
-		return '0.9.9';
+		return '1.0.0';
 	}
 
 	public function getDeveloper()
@@ -45,13 +45,6 @@ class CpCssPlugin extends BasePlugin
 		return craft()->templates->render('cpcss/_settings', array(
 			'cpCss' => $this->getSettings()->cpCss,
 		));
-	}
-
-	private function _isCp()
-	{
-		$currentUrl = craft()->request->getUrl();
-		$admin = craft()->config->get('cpTrigger');
-		return (strpos($currentUrl, "/$admin/") !== false);
 	}
 
 	private function _renderCss()
