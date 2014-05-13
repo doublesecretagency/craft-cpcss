@@ -1,0 +1,10 @@
+{% import '_includes/forms' as forms %}
+
+{{ forms.textareaField({
+	label: 'Control Panel CSS'|t,
+	instructions: 'Any CSS here will be applied to the entire Control Panel.',
+	id: 'cpCss',
+	name: 'cpCss',
+	value: cpCss,
+	rows: 15
+}) }}
