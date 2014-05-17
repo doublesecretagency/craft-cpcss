@@ -9,7 +9,7 @@ After you've installed the plugin, go to:
 
 - **Settings > Plugins > Control Panel CSS**
 
-Your CSS can be saved in either (or both) of two places:
+Your custom CSS can be saved in either (or both) of two places:
 
 **1) An external file in your public directory...**
 ![](cpcss/resources/images/example-cssFile.png)
