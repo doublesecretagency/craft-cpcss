@@ -11,10 +11,10 @@ After you've installed the plugin, go to:
 
 Your CSS can be saved in either (or both) of two places:
 
-(1) An external file, somewhere in your public directory...
+**1) An external file in your public directory...**
 ![](cpcss/resources/images/example-cssFile.png)
 
-(2) The textarea field, right on the settings page...
+**2) The "Additional CSS" field on the settings page...**
 ![](cpcss/resources/images/example-additionalCss.png)
 
 You can now customize the CSS in any way you see fit!
