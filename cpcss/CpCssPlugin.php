@@ -4,53 +4,60 @@ namespace Craft;
 class CpCssPlugin extends BasePlugin
 {
 
-	public function init()
-	{
-		parent::init();
-		if (craft()->request->isCpRequest()) {
-			$this->_renderCss();
-		}
-	}
+    public function init()
+    {
+        parent::init();
+        if (craft()->request->isCpRequest()) {
+            $this->_renderCss();
+        }
+    }
 
-	public function getName()
-	{
-		return Craft::t('Control Panel CSS');
-	}
+    public function getName()
+    {
+        return Craft::t('Control Panel CSS');
+    }
 
-	public function getVersion()
-	{
-		return '1.0.0';
-	}
+    public function getVersion()
+    {
+        return '1.0.1';
+    }
 
-	public function getDeveloper()
-	{
-		return 'Double Secret Agency';
-	}
+    public function getDeveloper()
+    {
+        return 'Double Secret Agency';
+    }
 
-	public function getDeveloperUrl()
-	{
-		return 'https://github.com/lindseydiloreto/craft-cpcss';
-		//return 'http://doublesecretagency.com';
-	}
+    public function getDeveloperUrl()
+    {
+        return 'https://github.com/lindseydiloreto/craft-cpcss';
+        //return 'http://doublesecretagency.com';
+    }
 
-	protected function defineSettings()
-	{
-		return array(
-			'cpCss' => array(AttributeType::String, 'column' => ColumnType::Text),
-		);
-	}
+    protected function defineSettings()
+    {
+        return array(
+            'cssFile'       => array(AttributeType::String),
+            'additionalCss' => array(AttributeType::String, 'column' => ColumnType::Text),
+        );
+    }
 
-	public function getSettingsHtml()
-	{
-		return craft()->templates->render('cpcss/_settings', array(
-			'cpCss' => $this->getSettings()->cpCss,
-		));
-	}
+    public function getSettingsHtml()
+    {
+        return craft()->templates->render('cpcss/_settings', array(
+            'settings' => $this->getSettings(),
+        ));
+    }
 
-	private function _renderCss()
-	{
-		$css = $this->getSettings()->cpCss;
-		craft()->templates->includeCss($css);
-	}
-	
+    private function _renderCss()
+    {
+        $settings = $this->getSettings();
+        if (trim($settings->cssFile)) {
+            $filepath = craft()->config->parseEnvironmentString($settings->cssFile);
+            craft()->templates->includeCssFile($filepath);
+        }
+        if (trim($settings->additionalCss)) {
+            craft()->templates->includeCss($settings->additionalCss);
+        }
+    }
+    
 }

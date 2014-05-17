@@ -9,6 +9,12 @@ After you've installed the plugin, go to:
 
 - **Settings > Plugins > Control Panel CSS**
 
-You can customize the CSS in any way you see fit!
+Your CSS can be saved in either (or both) of two places:
 
-![](cpcss/resources/images/example-settings.png)
+(1) An external file, somewhere in your public directory...
+![](cpcss/resources/images/example-cssFile.png)
+
+(2) The textarea field, right on the settings page...
+![](cpcss/resources/images/example-additionalCss.png)
+
+You can now customize the CSS in any way you see fit!

@@ -1,10 +1,20 @@
 {% import '_includes/forms' as forms %}
 
+<p style="font-weight:bold">Your custom CSS will be applied to the entire Control Panel.</p>
+
+{{ forms.textField({
+	label: "CSS File"|t,
+	instructions: "Enter the path to your CSS file."|t,
+	id: 'cssFile',
+	name: 'cssFile',
+	value: settings.cssFile,
+}) }}
+
 {{ forms.textareaField({
-	label: 'Control Panel CSS'|t,
-	instructions: 'Any CSS here will be applied to the entire Control Panel.',
-	id: 'cpCss',
-	name: 'cpCss',
-	value: cpCss,
+	label: 'Additional CSS'|t,
+	instructions: 'Enter any additional CSS here.',
+	id: 'additionalCss',
+	name: 'additionalCss',
+	value: settings.additionalCss,
 	rows: 15
 }) }}
