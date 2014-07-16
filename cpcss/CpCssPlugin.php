@@ -19,7 +19,7 @@ class CpCssPlugin extends BasePlugin
 
     public function getVersion()
     {
-        return '1.0.1';
+        return '1.0.2';
     }
 
     public function getDeveloper()
@@ -53,7 +53,11 @@ class CpCssPlugin extends BasePlugin
         $settings = $this->getSettings();
         if (trim($settings->cssFile)) {
             $filepath = craft()->config->parseEnvironmentString($settings->cssFile);
-            craft()->templates->includeCssFile($filepath);
+            if ($hash = @sha1_file($filepath)) {
+                craft()->templates->includeCssFile($filepath.'?e='.$hash);
+            } else {
+                craft()->templates->includeJs('alert("Control Panel CSS - File does not exist:\n'.$filepath.'");');
+            }
         }
         if (trim($settings->additionalCss)) {
             craft()->templates->includeCss($settings->additionalCss);
