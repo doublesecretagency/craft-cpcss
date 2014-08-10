@@ -19,7 +19,7 @@ class CpCssPlugin extends BasePlugin
 
     public function getVersion()
     {
-        return '1.0.3';
+        return '1.0.4';
     }
 
     public function getDeveloper()
@@ -43,6 +43,7 @@ class CpCssPlugin extends BasePlugin
 
     public function getSettingsHtml()
     {
+        craft()->templates->includeCssResource('cpcss/css/settings.css');
         return craft()->templates->render('cpcss/_settings', array(
             'settings' => $this->getSettings(),
         ));
