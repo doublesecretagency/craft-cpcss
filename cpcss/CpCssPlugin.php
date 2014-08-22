@@ -19,7 +19,7 @@ class CpCssPlugin extends BasePlugin
 
     public function getVersion()
     {
-        return '1.0.4';
+        return '1.0.5';
     }
 
     public function getDeveloper()
@@ -43,6 +43,7 @@ class CpCssPlugin extends BasePlugin
 
     public function getSettingsHtml()
     {
+        // @TODO: http://codemirror.net/
         craft()->templates->includeCssResource('cpcss/css/settings.css');
         return craft()->templates->render('cpcss/_settings', array(
             'settings' => $this->getSettings(),
@@ -57,7 +58,7 @@ class CpCssPlugin extends BasePlugin
             if ($hash = @sha1_file($filepath)) {
                 craft()->templates->includeCssFile($filepath.'?e='.$hash);
             } else {
-                craft()->userSession->setError('Control Panel CSS - File does not exist ('.basename($filepath).')');
+                craft()->templates->includeCssFile($filepath);
             }
         }
         if (trim($settings->additionalCss)) {
