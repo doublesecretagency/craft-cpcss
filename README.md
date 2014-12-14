@@ -18,3 +18,16 @@ Your custom CSS can be saved in either (or both) of two places:
 ![](cpcss/resources/images/example-additionalCss.png)
 
 You can now customize the CSS in any way you see fit!
+
+***
+
+Here are a few simple examples of how other people are customizing the CSS in their control panels:
+
+[**Hopegrown**](http://www.hopegrown.org/)
+![](cpcss/resources/images/cpcss-hopegrown.png)
+
+[**LA Marathon**](http://www.lamarathon.com/)
+![](cpcss/resources/images/cpcss-lamarathon.png)
+
+**Resilience Hub** _(launching soon)_
+![](cpcss/resources/images/cpcss-resiliencehub.png)
