@@ -21,6 +21,12 @@ You can now customize the CSS in any way you see fit!
 
 ***
 
+## Starter Code
+
+Customizing your CSS is pretty easy. But to make it even easier, here's a Gist to help you get started:
+
+[Standard Craft Control Panel CSS](https://gist.github.com/lindseydiloreto/50643ea5635b4e8aaa74)
+
 ***
 
 ##Real-World Examples
