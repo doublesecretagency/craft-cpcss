@@ -17,9 +17,24 @@ class CpCssPlugin extends BasePlugin
         return Craft::t('Control Panel CSS');
     }
 
+    public function getDescription()
+    {
+        return 'Add custom CSS to your Control Panel';
+    }
+
+    public function getDocumentationUrl()
+    {
+        return 'https://github.com/lindseydiloreto/craft-cpcss';
+    }
+
     public function getVersion()
     {
-        return '1.0.6';
+        return '1.1.0';
+    }
+
+    public function getSchemaVersion()
+    {
+        return '1.1.0';
     }
 
     public function getDeveloper()
@@ -90,5 +105,5 @@ $(function () {
             craft()->templates->includeCss($settings->additionalCss);
         }
     }
-    
+
 }
