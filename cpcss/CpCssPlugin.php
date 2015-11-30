@@ -19,7 +19,7 @@ class CpCssPlugin extends BasePlugin
 
     public function getDescription()
     {
-        return 'Add custom CSS to your Control Panel';
+        return 'Add custom CSS to your Control Panel.';
     }
 
     public function getDocumentationUrl()
