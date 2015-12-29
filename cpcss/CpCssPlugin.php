@@ -72,6 +72,7 @@ class CpCssPlugin extends BasePlugin
             craft()->templates->includeJsResource('cpcss/js/codemirror-css.js');
             craft()->templates->includeJs('
 $(function () {
+    $("'.addslashes('input[type="hidden"][name="redirect"][value="settings/plugins"]').'").attr("value", Craft.getCpUrl("settings/plugins/cpcss"));
     CodeMirror.fromTextArea(document.getElementById("settings-additionalCss"), {
         indentUnit: 4,
         styleActiveLine: true,
