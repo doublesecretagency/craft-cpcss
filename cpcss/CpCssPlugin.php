@@ -72,7 +72,19 @@ class CpCssPlugin extends BasePlugin
             craft()->templates->includeJsResource('cpcss/js/codemirror-css.js');
             craft()->templates->includeJs('
 $(function () {
-    $("'.addslashes('input[type="hidden"][name="redirect"][value="settings/plugins"]').'").attr("value", Craft.getCpUrl("settings/plugins/cpcss"));
+    var $redirect = $("'.addslashes('input[type="hidden"][name="redirect"][value$="settings/plugins"]').'"),
+        $saveBtn = $("'.addslashes('input[type="submit"').'").wrap("'.addslashes('<div class="btngroup" />').'"),
+        $menuBtn = $("'.addslashes('<div class="btn submit menubtn" />').'").appendTo($saveBtn.parent()),
+        $menu = $("'.addslashes('<div class="menu" />').'").appendTo($saveBtn.parent()),
+        $items = $("<ul />").appendTo($menu),
+        $continueOpt = $("'.addslashes('<li><a class="formsubmit" data-redirect="'.UrlHelper::getCpUrl('settings/plugins/cpcss').'">'.Craft::t('Save and continue editing').'<span class="shortcut">'.(craft()->request->getClientOs() === 'Mac' ? '⌘' : 'Ctrl+').'S</span></a></li>').'").appendTo($items);
+    new Garnish.MenuBtn($menuBtn, {
+        onOptionSelect : function (option) {
+            Craft.cp.submitPrimaryForm();
+        }
+    });
+    $saveBtn.on("click", function (e) { $redirect.attr("value", "'.UrlHelper::getCpUrl('settings/plugins').'"); });
+    $redirect.attr("value", "'.UrlHelper::getCpUrl('settings/plugins/cpcss').'");
     CodeMirror.fromTextArea(document.getElementById("settings-additionalCss"), {
         indentUnit: 4,
         styleActiveLine: true,
