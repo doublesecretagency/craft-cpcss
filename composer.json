@@ -1,0 +1,17 @@
+{
+    "name": "lindseydiloreto/craft-cpcss",
+    "description": "Craft Plugin that easily overwrites the default Control Panel styles",
+    "authors": [
+        {
+            "name": "Lindsey DiLoreto",
+            "email": "support@doublesecretagency.com"
+        }
+    ],
+    "type": "craft-plugin",
+    "require": {
+        "composer/installers": "~1.0"
+    },
+    "extra": {
+        "installer-name": "cpcss"
+    }
+}
