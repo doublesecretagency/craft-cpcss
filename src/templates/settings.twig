@@ -1,0 +1,30 @@
+{% import '_includes/forms' as forms %}
+
+{% macro configWarning(setting, docsUrl) -%}
+    {{ "This is being overridden by the {setting} config setting."|t('app', {
+        setting: '<a href="'~docsUrl~'" target="_blank">'~setting~'</a>'
+    })|raw }}
+{%- endmacro %}
+
+{% from _self import configWarning %}
+
+<p>Your custom CSS will be applied to the entire Control Panel.</p>
+
+{{ forms.textField({
+    label: "CSS File"|t,
+    instructions: "Enter the path to your CSS file."|t,
+    id: 'cssFile',
+    name: 'cssFile',
+    value: settings.cssFile,
+    disabled: 'cssFile' in overrideKeys,
+    warning: 'cssFile' in overrideKeys ? configWarning('cssFile', docsUrl)
+}) }}
+
+{{ forms.textareaField({
+    label: "Additional CSS"|t,
+    instructions: "Enter any additional CSS here."|t,
+    id: 'additionalCss',
+    name: 'additionalCss',
+    value: settings.additionalCss,
+    rows: 15
+}) }}
