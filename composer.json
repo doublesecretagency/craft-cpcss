@@ -1,5 +1,5 @@
 {
-    "name": "doublesecretagency/cp-css",
+    "name": "doublesecretagency/craft-cpcss",
     "description": "Add custom CSS to your Control Panel.",
     "type": "craft-plugin",
     "version": "2.0.0",
@@ -12,7 +12,7 @@
         "css"
     ],
     "support": {
-        "docs": "https://github.com/doublesecretagency/craft-cpcss/blob/master/README.md",
+        "docs": "https://github.com/doublesecretagency/craft-cpcss/blob/v2/README.md",
         "issues": "https://github.com/doublesecretagency/craft-cpcss/issues"
     },
     "license": "MIT",
@@ -36,7 +36,7 @@
         "schemaVersion": "2.0.0",
         "hasCpSettings": true,
         "hasCpSection": false,
-        "changelogUrl": "https://raw.githubusercontent.com/doublesecretagency/craft-cpcss/master/CHANGELOG.md",
+        "changelogUrl": "https://raw.githubusercontent.com/doublesecretagency/craft-cpcss/v2/CHANGELOG.md",
         "class": "doublesecretagency\\cpcss\\CpCss"
     }
 }
