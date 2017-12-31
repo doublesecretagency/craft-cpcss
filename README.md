@@ -27,7 +27,7 @@ Customizing your CSS is pretty easy. But to make it even easier, here's a snippe
 
 ```css
 /* Sidebar background color */
-#global-sidebar .fixed-container {
+#global-sidebar {
     background: #333f4d !important;
 }
 

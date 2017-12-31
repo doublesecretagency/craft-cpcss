@@ -27,6 +27,9 @@ class CpCss extends Plugin
     /** @var Plugin  $plugin  Self-referential plugin property. */
     public static $plugin;
 
+    /** @var bool  $hasCpSettings  The plugin has a settings page. */
+    public $hasCpSettings = true;
+
     /** @inheritDoc */
     public function init()
     {

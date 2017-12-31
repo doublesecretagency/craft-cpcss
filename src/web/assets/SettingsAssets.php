@@ -14,7 +14,7 @@ namespace doublesecretagency\cpcss\web\assets;
 use craft\web\AssetBundle;
 
 /**
- * Class SettingsAsset
+ * Class SettingsAssets
  * @since 2.0.0
  */
 class SettingsAssets extends AssetBundle
