@@ -11,10 +11,15 @@
 
 namespace doublesecretagency\cpcss;
 
+use yii\base\Event;
+
 use Craft;
 use craft\base\Plugin;
+use craft\events\TemplateEvent;
+use craft\web\View;
 
 use doublesecretagency\cpcss\models\Settings;
+use doublesecretagency\cpcss\web\assets\CustomAssets;
 use doublesecretagency\cpcss\web\assets\SettingsAssets;
 
 /**
@@ -35,9 +40,27 @@ class CpCss extends Plugin
     {
         parent::init();
         self::$plugin = $this;
-        if (Craft::$app->getRequest()->getIsCpRequest()) {
-            $this->_renderCss();
+        // If not control panel request, bail
+        if (!Craft::$app->getRequest()->getIsCpRequest()) {
+            return false;
         }
+        // Load CSS before template is rendered
+        Event::on(
+            View::class,
+            View::EVENT_BEFORE_RENDER_TEMPLATE,
+            function (TemplateEvent $event) {
+                // Get view
+                $view = Craft::$app->getView();
+                // Load CSS file
+                $view->registerAssetBundle(CustomAssets::class);
+                // Load additional CSS
+                $settings = $this->getSettings();
+                $css = trim($settings->additionalCss);
+                if ($css) {
+                    $view->registerCss($css);
+                }
+            }
+        );
     }
 
     /**
@@ -53,53 +76,14 @@ class CpCss extends Plugin
      */
     protected function settingsHtml(): string
     {
-        $this->_loadCodeMirror();
+        $view = Craft::$app->getView();
+        $view->registerAssetBundle(SettingsAssets::class);
         $overrideKeys = array_keys(Craft::$app->getConfig()->getConfigFromFile('cp-css'));
-        return Craft::$app->getView()->renderTemplate('cp-css/settings', [
+        return $view->renderTemplate('cp-css/settings', [
             'settings' => $this->getSettings(),
             'overrideKeys' => $overrideKeys,
             'docsUrl' => $this->documentationUrl,
         ]);
-    }
-
-    /**
-     * @return void
-     */
-    private function _loadCodeMirror()
-    {
-        $view = Craft::$app->getView();
-        $view->registerAssetBundle(SettingsAssets::class);
-        $view->registerJs('
-$(function () {
-    console.log("Loading CodeMirror...");
-    CodeMirror.fromTextArea(document.getElementById("settings-additionalCss"), {
-        indentUnit: 4,
-        styleActiveLine: true,
-        lineNumbers: true,
-        lineWrapping: true,
-        theme: "blackboard"
-    });
-});');
-    }
-
-    /**
-     * @return void
-     */
-    private function _renderCss()
-    {
-        $view = Craft::$app->getView();
-        $settings = $this->getSettings();
-        if (trim($settings->cssFile)) {
-            $filepath = $settings->cssFile;
-            if ($hash = @sha1_file($filepath)) {
-                $view->registerCssFile($filepath.'?e='.$hash);
-            } else {
-                $view->registerCssFile($filepath);
-            }
-        }
-        if (trim($settings->additionalCss)) {
-            $view->registerCss($settings->additionalCss);
-        }
     }
 
 }

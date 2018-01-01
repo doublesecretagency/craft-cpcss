@@ -28,32 +28,32 @@ Customizing your CSS is pretty easy. But to make it even easier, here's a snippe
 ```css
 /* Sidebar background color */
 #global-sidebar {
-    background: #333f4d !important;
+    background: #333f4d;
 }
 
 /* Header background color */
 #main-container #main #header {
-    background: #ebedef !important;
+    background: #ebedef;
 }
 
 /* H1 tags */
 h1 {
-    color: #29323d !important;
+    color: #29323d;
 }
 
 /* Standard button color */
 .btn.submit {
-    background: #da5a47 !important;
+    background: #da5a47;
 }
 /* Hover button color */
 .btn.submit:not(.disabled):not(.inactive):hover,
 .btn.submit:not(.disabled):not(.inactive).hover {
-    background: #bf503f !important;
+    background: #bf503f;
 }
 /* Active button color */
 .btn.submit:not(.disabled):not(.inactive):active,
 .btn.submit:not(.disabled):not(.inactive).active {
-    background: #8c3b2e !important;
+    background: #8c3b2e;
 }
 ```
 

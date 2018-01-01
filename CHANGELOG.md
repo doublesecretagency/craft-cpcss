@@ -1,5 +1,15 @@
 # Changelog
 
+## 2.1.0 - 2018-01-01
+
+### Added
+- Custom CSS now loads _after_ the default Craft CSS.
+
+### Changed
+- Refactored to make better use of Asset Bundles.
+- Refactored to load custom CSS just before template loads.
+- Updated sample CSS in README (no longer needs `!important`).
+
 ## 2.0.1 - 2017-12-30
 
 ### Changed
