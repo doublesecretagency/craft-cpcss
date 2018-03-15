@@ -26,15 +26,3 @@ You can now customize the CSS in any way you see fit!
 Customizing your CSS is pretty easy. But to make it even easier, here's a Gist to help you get started:
 
 [Standard Craft Control Panel CSS](https://gist.github.com/lindseydiloreto/50643ea5635b4e8aaa74)
-
-***
-
-##Real-World Examples
-
-See how other people are using custom CSS in their control panels...
-
-![](README-images/cpcss-hopegrown.png)
-
-![](README-images/cpcss-resiliencehub.png)
-
-![](README-images/cpcss-lamarathon.png)
