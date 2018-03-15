@@ -5,6 +5,14 @@ Easily overwrite the default Control Panel styles that ship with Craft.
 
 ![](README-images/example-header.png)
 
+***
+
+>This version is for Craft 2. To install it, download and move the `cpcss` folder into your `craft/plugins` directory.
+>
+>For the Craft 3 version, see the [`v2` branch...](https://github.com/doublesecretagency/craft-cpcss/tree/v2)
+
+***
+
 After you've installed the plugin, go to:
 
 - **Settings > Plugins > Control Panel CSS**
