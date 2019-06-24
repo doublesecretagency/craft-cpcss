@@ -11,6 +11,7 @@
 
 namespace doublesecretagency\cpcss\web\assets;
 
+use Craft;
 use craft\web\AssetBundle;
 use craft\web\assets\cp\CpAsset;
 use doublesecretagency\cpcss\CpCss;
@@ -33,7 +34,7 @@ class CustomAssets extends AssetBundle
 
         $settings = CpCss::$plugin->getSettings();
 
-        $file = trim($settings['cssFile']);
+        $file = trim(Craft::parseEnv($settings['cssFile']));
 
         if ($file) {
 

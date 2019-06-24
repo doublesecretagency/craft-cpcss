@@ -10,11 +10,13 @@
 
 <p>Your custom CSS will be applied to the entire Control Panel.</p>
 
-{{ forms.textField({
+{{ forms.autosuggestField({
     label: "CSS File"|t,
     instructions: "Enter the path to your CSS file."|t,
     id: 'cssFile',
     name: 'cssFile',
+    suggestEnvVars: true,
+    suggestAliases: true,
     value: settings.cssFile,
     disabled: 'cssFile' in overrideKeys,
     warning: 'cssFile' in overrideKeys ? configWarning('cssFile', docsUrl)

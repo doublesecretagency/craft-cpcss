@@ -1,5 +1,10 @@
 # Changelog
 
+## 2.2.0 - 2019-06-24
+
+### Added
+- File path now includes proper support for [environmental values](https://docs.craftcms.com/v3/config/environments.html).
+
 ## 2.1.0 - 2018-01-01
 
 ### Added

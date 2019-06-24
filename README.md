@@ -7,12 +7,6 @@ Easily overwrite the default Control Panel styles that ship with Craft.
 
 ***
 
->This version is for Craft 3. To install it, visit the Plugin Store in your site's Control Panel.
->
->For the Craft 2 version, see the [`v1` branch...](https://github.com/doublesecretagency/craft-cpcss/tree/v1)
-
-***
-
 After you've installed the plugin, go to:
 
 - **Settings > Plugins > Control Panel CSS**
@@ -66,39 +60,6 @@ h1 {
 ```
 
 And here's the same code as a [Gist...](https://gist.github.com/lindseydiloreto/37332424e0edaef54cabc50c324b0fab)
-
-***
-
-## Environment-aware file path
-
-If you'd like to set your CSS file path at the _environment_ level, then you'll simply want to create a `/config/cp-css.php` file, and enter something like this...
-
-```php
-return [
-    '*' => [],
-    'dev' => [
-        'cssFile' => 'http://local.dev/path/to/cp.css',
-    ],
-    'production' => [
-        'cssFile' => 'http://example.com/path/to/cp.css',
-    ]
-];
-```
-
-You can also keep the file path out of your repo entirely, by using `.env` variables to set the CSS file path...
-
-```php
-return [
-    'cssFile' => getenv('CP_CSS_FILE'),
-];
-```
-
-With that in place, you can add this to your `.env` file...
-
-```dotenv
-# Path to CSS file for the Control Panel
-CP_CSS_FILE="http://example.com/path/to/cp.css"
-```
 
 ***
 

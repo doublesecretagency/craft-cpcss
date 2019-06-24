@@ -88,6 +88,7 @@ class CpCss extends Plugin
     {
         $view = Craft::$app->getView();
         $view->registerAssetBundle(SettingsAssets::class);
+        $view->registerCss('.autosuggest__results-container {z-index: 10;}');
 
         $overrideKeys = array_keys(Craft::$app->getConfig()->getConfigFromFile('cp-css'));
 
