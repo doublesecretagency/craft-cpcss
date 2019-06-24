@@ -21,7 +21,9 @@ use craft\web\assets\cp\CpAsset;
 class SettingsAssets extends AssetBundle
 {
 
-    /** @inheritdoc */
+    /**
+     * @inheritDoc
+     */
     public function init()
     {
         parent::init();

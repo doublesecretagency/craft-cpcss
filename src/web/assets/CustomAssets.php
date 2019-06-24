@@ -13,7 +13,6 @@ namespace doublesecretagency\cpcss\web\assets;
 
 use craft\web\AssetBundle;
 use craft\web\assets\cp\CpAsset;
-
 use doublesecretagency\cpcss\CpCss;
 
 /**
@@ -23,7 +22,9 @@ use doublesecretagency\cpcss\CpCss;
 class CustomAssets extends AssetBundle
 {
 
-    /** @inheritdoc */
+    /**
+     * @inheritDoc
+     */
     public function init()
     {
         parent::init();
@@ -35,12 +36,15 @@ class CustomAssets extends AssetBundle
         $file = trim($settings['cssFile']);
 
         if ($file) {
+
             // Cache buster
             if ($hash = @sha1_file($file)) {
                 $file .= '?e='.$hash;
             }
+
             // Load CSS file
             $this->css = [$file];
+
         }
     }
 

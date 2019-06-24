@@ -20,10 +20,14 @@ use craft\base\Model;
 class Settings extends Model
 {
 
-    /** @var string|null  $cssFile  Path for the CSS file to load in the control panel. */
-    public $cssFile;
+    /**
+     * @var string Path for the CSS file to load in the control panel.
+     */
+    public $cssFile = '';
 
-    /** @var string|null  $additionalCss  Any additional CSS which may be added directly. */
-    public $additionalCss;
+    /**
+     * @var string Any additional CSS which may be added directly.
+     */
+    public $additionalCss = '';
 
 }
