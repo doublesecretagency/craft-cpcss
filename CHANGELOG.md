@@ -1,5 +1,10 @@
 # Changelog
 
+## 2.2.1 - 2020-04-04
+
+### Changed
+- Made the viewing area larger.
+
 ## 2.2.0 - 2019-06-24
 
 ### Added
