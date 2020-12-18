@@ -1,9 +1,14 @@
 # Changelog
 
+## 2.3.0 - 2020-12-18
+
+### Added
+- Now allows for multiple, comma-separated file paths. (thanks @nickolasjadams)
+
 ## 2.2.1 - 2020-04-04
 
 ### Changed
-- Made the viewing area larger.
+- Made the viewing area larger. (thanks @SayChi)
 
 ## 2.2.0 - 2019-06-24
 

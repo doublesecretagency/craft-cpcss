@@ -9,7 +9,7 @@ Easily overwrite the default Control Panel styles that ship with Craft.
 
 After you've installed the plugin, go to:
 
-- **Settings > Plugins > Control Panel CSS**
+- **Settings > Control Panel CSS**
 
 Your custom CSS can be saved in either (or both) of two places:
 

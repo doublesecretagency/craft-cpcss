@@ -30,23 +30,43 @@ class CustomAssets extends AssetBundle
     {
         parent::init();
 
+        // Requires standard CP assets to be loaded first
         $this->depends = [CpAsset::class];
 
+        // Get plugin settings
         $settings = CpCss::$plugin->getSettings();
 
-        $file = trim(Craft::parseEnv($settings['cssFile']));
+        // Get the file (or files) specified
+        $file = trim($settings['cssFile']);
 
-        if ($file) {
+        // If no file was specified, bail
+        if (!$file) {
+            return;
+        }
 
-            // Cache buster
+        // Initialize a collection of paths
+        $paths = [];
+
+        // Allow for comma-separated file paths
+        $files = explode(',', $file);
+
+        // Loop through specified files
+        foreach ($files as $file) {
+
+            // Parse each filename for aliases
+            $file = Craft::parseEnv(trim($file));
+
+            // Bust the cache
             if ($hash = @sha1_file($file)) {
                 $file .= '?e='.$hash;
             }
 
-            // Load CSS file
-            $this->css = [$file];
-
+            // Add file to path collection
+            $paths[] = $file;
         }
+
+        // Load all files
+        $this->css = $paths;
     }
 
 }
