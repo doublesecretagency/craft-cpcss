@@ -1,5 +1,10 @@
 # Changelog
 
+## 2.3.1 - 2021-08-20
+
+### Fixed
+- Prevents Matrix fields from reloading CSS on each block. (thanks @bencroker)
+
 ## 2.3.0 - 2020-12-18
 
 ### Added
