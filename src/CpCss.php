@@ -50,10 +50,10 @@ class CpCss extends Plugin
             return false;
         }
 
-        // Load CSS before template is rendered
+        // Load CSS before page template is rendered
         Event::on(
             View::class,
-            View::EVENT_BEFORE_RENDER_TEMPLATE,
+            View::EVENT_BEFORE_RENDER_PAGE_TEMPLATE,
             function (TemplateEvent $event) {
 
                 // Get view
