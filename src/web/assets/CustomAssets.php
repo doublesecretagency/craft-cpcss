@@ -56,13 +56,43 @@ class CustomAssets extends AssetBundle
             // Parse each filename for aliases
             $file = Craft::parseEnv(trim($file));
 
-            // Bust the cache
-            if ($hash = @sha1_file($file)) {
-                $file .= '?e='.$hash;
+            // If no file specified, skip to next
+            if (!$file) {
+                continue;
             }
 
-            // Add file to path collection
-            $paths[] = $file;
+            // Get file contents
+            $contents = @file_get_contents($file);
+
+            // If unable to retrieve file contents
+            if (!$contents) {
+
+                // Add file without busting cache
+                $paths[] = $file;
+
+                // Log warning and skip to next
+                Craft::warning("Can't bust cache of CP CSS, unable to load contents of $file");
+                continue;
+
+            }
+
+            // Get hash of contents
+            $hash = @sha1($contents);
+
+            // If unable to hash file contents
+            if (!$hash) {
+
+                // Add file without busting cache
+                $paths[] = $file;
+
+                // Log warning and skip to next
+                Craft::warning("Can't bust cache for CP CSS, unable to hash contents of $file");
+                continue;
+
+            }
+
+            // Add file, bust the cache
+            $paths[] = "{$file}?e={$hash}";
         }
 
         // Load all files
