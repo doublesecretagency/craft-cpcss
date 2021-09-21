@@ -30,4 +30,9 @@ class Settings extends Model
      */
     public $additionalCss = '';
 
+    /**
+     * @var bool Whether to enable the hash-based cache busting.
+     */
+    public $cacheBusting = true;
+
 }
