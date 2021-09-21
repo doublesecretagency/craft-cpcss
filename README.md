@@ -1,13 +1,16 @@
-Control Panel CSS plugin for Craft CMS
-======================================
+<img align="left" src="https://raw.githubusercontent.com/doublesecretagency/craft-cpcss/v2/src/icon.svg" alt="Plugin icon">
 
-Easily overwrite the default Control Panel styles that ship with Craft.
+# Control Panel CSS plugin for Craft CMS
+
+**Add custom CSS to your Control Panel.**
+
+---
+
+Easily overwrite the default Control Panel styles that ship with Craft...
 
 ![](src/resources/img/example-cp.png)
 
-***
-
-After you've installed the plugin, go to:
+After installing the plugin, go to:
 
 - **Settings > Control Panel CSS**
 
@@ -21,7 +24,7 @@ Your custom CSS can be saved in either (or both) of two places:
 
 You can now customize the CSS in any way you see fit!
 
-***
+---
 
 ## Starter Code
 
@@ -61,10 +64,31 @@ h1 {
 
 And here's the same code as a [Gist...](https://gist.github.com/lindseydiloreto/37332424e0edaef54cabc50c324b0fab)
 
-***
+---
+
+## File Hashing
+
+To ensure you get the freshest version of your CSS, a cache-busting hash is appended to the end of each file reference.
+
+This can be disabled by setting `cacheBusting` to **false** in the [PHP config file](https://github.com/doublesecretagency/craft-cpcss/blob/v2/src/config.php)...
+
+```php
+// Disable hash-based cache busting
+'cacheBusting' => false
+```
+
+See config file for usage instructions.
+
+---
 
 ## Anything else?
 
 We've got other plugins too!
 
-Check out the full catalog at [doublesecretagency.com/plugins](https://www.doublesecretagency.com/plugins)
+Check out the full catalog at [plugins.doublesecretagency.com](https://plugins.doublesecretagency.com)
+
+**On behalf of Double Secret Agency, thanks for checking out our plugin!** 🍺
+
+<p align="center">
+    <img width="130" src="https://www.doublesecretagency.com/resources/images/dsa-transparent.png" alt="Logo for Double Secret Agency">
+</p>
