@@ -44,9 +44,6 @@ class CustomAssets extends AssetBundle
             return;
         }
 
-        // Initialize a collection of paths
-        $paths = [];
-
         // Allow for comma-separated file paths
         $files = explode(',', $file);
 
@@ -56,47 +53,55 @@ class CustomAssets extends AssetBundle
             // Parse each filename for aliases
             $file = Craft::parseEnv(trim($file));
 
-            // If no file specified, skip to next
+            // If no file specified, skip to the next
             if (!$file) {
                 continue;
             }
 
-            // Get file contents
-            $contents = @file_get_contents($file);
-
-            // If unable to retrieve file contents
-            if (!$contents) {
-
-                // Add file without busting cache
-                $paths[] = $file;
-
-                // Log warning and skip to next
-                Craft::warning("Can't bust cache of CP CSS, unable to load contents of $file");
-                continue;
-
+            // If cache busting is enabled
+            if ($settings['cacheBusting']) {
+                // Reference file with a hash
+                $this->css[] = $this->_addHash($file);
+            } else {
+                // Reference file without a hash
+                $this->css[] = $file;
             }
 
-            // Get hash of contents
-            $hash = @sha1($contents);
+        }
+    }
 
-            // If unable to hash file contents
-            if (!$hash) {
+    /**
+     * Add a unique file hash for cache busting.
+     *
+     * @param string $file
+     * @return string
+     */
+    private function _addHash(string $file): string
+    {
+        // Get file contents
+        $contents = @file_get_contents($file);
 
-                // Add file without busting cache
-                $paths[] = $file;
-
-                // Log warning and skip to next
-                Craft::warning("Can't bust cache for CP CSS, unable to hash contents of $file");
-                continue;
-
-            }
-
-            // Add file, bust the cache
-            $paths[] = "{$file}?e={$hash}";
+        // If unable to retrieve file contents
+        if (!$contents) {
+            // Log warning
+            Craft::warning("Can't bust cache of CP CSS, unable to load contents of $file");
+            // Return file without hash
+            return $file;
         }
 
-        // Load all files
-        $this->css = $paths;
+        // Get hash of contents
+        $hash = @sha1($contents);
+
+        // If unable to hash file contents
+        if (!$hash) {
+            // Log warning
+            Craft::warning("Can't bust cache for CP CSS, unable to hash contents of $file");
+            // Return file without hash
+            return $file;
+        }
+
+        // Return file with hash
+        return "{$file}?e={$hash}";
     }
 
 }
