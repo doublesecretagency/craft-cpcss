@@ -2,7 +2,7 @@
     "name": "doublesecretagency/craft-cpcss",
     "description": "Add custom CSS to your Control Panel.",
     "type": "craft-plugin",
-    "version": "2.3.1",
+    "version": "2.4.0",
     "keywords": [
         "craft",
         "cms",

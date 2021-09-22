@@ -1,5 +1,14 @@
 # Changelog
 
+## 2.4.0 - 2021-09-21
+
+### Added
+- Added `cacheBusting` config setting to enable/disable hash-based cache busting. 
+- Now logs warnings if unable to generate a hash for cache busting.
+
+### Changed
+- Split up `sha1_file` in order to reduce risk of CP hanging while generating a hash.
+
 ## 2.3.1 - 2021-08-20
 
 ### Fixed
