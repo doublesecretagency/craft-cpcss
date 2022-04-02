@@ -12,9 +12,11 @@
 namespace doublesecretagency\cpcss\web\assets;
 
 use Craft;
+use craft\helpers\App;
 use craft\web\AssetBundle;
 use craft\web\assets\cp\CpAsset;
 use doublesecretagency\cpcss\CpCss;
+use doublesecretagency\cpcss\models\Settings;
 
 /**
  * Class CustomAssets
@@ -24,9 +26,9 @@ class CustomAssets extends AssetBundle
 {
 
     /**
-     * @inheritDoc
+     * @inheritdoc
      */
-    public function init()
+    public function init(): void
     {
         parent::init();
 
@@ -34,6 +36,7 @@ class CustomAssets extends AssetBundle
         $this->depends = [CpAsset::class];
 
         // Get plugin settings
+        /** @var Settings $settings */
         $settings = CpCss::$plugin->getSettings();
 
         // Get the file (or files) specified
@@ -51,7 +54,7 @@ class CustomAssets extends AssetBundle
         foreach ($files as $file) {
 
             // Parse each filename for aliases
-            $file = Craft::parseEnv(trim($file));
+            $file = App::parseEnv(trim($file));
 
             // If no file specified, skip to the next
             if (!$file) {

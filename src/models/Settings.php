@@ -23,16 +23,16 @@ class Settings extends Model
     /**
      * @var string Path for the CSS file to load in the control panel.
      */
-    public $cssFile = '';
+    public string $cssFile = '';
 
     /**
      * @var string Any additional CSS which may be added directly.
      */
-    public $additionalCss = '';
+    public string $additionalCss = '';
 
     /**
      * @var bool Whether to enable the hash-based cache busting.
      */
-    public $cacheBusting = true;
+    public bool $cacheBusting = true;
 
 }
