@@ -18,7 +18,6 @@ use craft\events\TemplateEvent;
 use craft\web\View;
 use doublesecretagency\cpcss\models\Settings;
 use doublesecretagency\cpcss\web\assets\CustomAssets;
-use doublesecretagency\cpcss\web\assets\SettingsAssets;
 use yii\base\Event;
 
 /**
@@ -89,9 +88,6 @@ class CpCss extends Plugin
     protected function settingsHtml(): ?string
     {
         $view = Craft::$app->getView();
-        $view->registerAssetBundle(SettingsAssets::class);
-        $view->registerCss('.autosuggest__results-container {z-index: 10;}');
-
         $overrideKeys = array_keys(Craft::$app->getConfig()->getConfigFromFile('cp-css'));
 
         return $view->renderTemplate('cp-css/settings', [

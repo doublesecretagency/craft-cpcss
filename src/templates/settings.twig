@@ -6,6 +6,7 @@
     })|raw }}
 {%- endmacro %}
 
+{% import "codeeditor/codeEditor" as codeEditor %}
 {% from _self import configWarning %}
 
 <p>Your custom CSS will be applied to the entire Control Panel.</p>
@@ -22,11 +23,22 @@
     warning: 'cssFile' in overrideKeys ? configWarning('cssFile', docsUrl)
 }) }}
 
-{{ forms.textareaField({
+{% set monacoOptions = {
+    language: 'css',
+    theme: 'vs-dark',
+    lineNumbers: 'on',
+    lineNumbersMinChars: 4,
+    lineDecorationsWidth: 6,
+    folding: true,
+} %}
+{% set codeEditorOptions = {
+    wrapperClass:"monaco-editor-background-frame"
+} %}
+{{ codeEditor.textareaField({
     label: "Additional CSS"|t,
     instructions: "Enter any additional CSS here."|t,
     id: 'additionalCss',
     name: 'additionalCss',
     value: settings.additionalCss,
     rows: 15
-}) }}
+}, "CodeField", monacoOptions, codeEditorOptions) }}
