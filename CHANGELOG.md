@@ -1,5 +1,10 @@
 # Changelog
 
+## Unreleased
+
+### Changed
+- The "Additional CSS" field is now powered by the [Code Editor](https://github.com/nystudio107/craft-code-editor) package. (thanks @khalwat)
+
 ## 2.5.0 - 2022-04-02
 
 ### Added

@@ -87,10 +87,10 @@ class CpCss extends Plugin
      */
     protected function settingsHtml(): ?string
     {
-        $view = Craft::$app->getView();
+        // Get the override keys
         $overrideKeys = array_keys(Craft::$app->getConfig()->getConfigFromFile('cp-css'));
 
-        return $view->renderTemplate('cp-css/settings', [
+        return Craft::$app->getView()->renderTemplate('cp-css/settings', [
             'settings' => $this->getSettings(),
             'overrideKeys' => $overrideKeys,
             'docsUrl' => $this->documentationUrl,
