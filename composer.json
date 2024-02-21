@@ -23,7 +23,7 @@
         }
     ],
     "require": {
-        "craftcms/cms": "^4.0.0",
+        "craftcms/cms": "^5.0.0-beta",
         "nystudio107/craft-code-editor": "^1.0.7"
     },
     "autoload": {
