@@ -26,7 +26,6 @@ use yii\base\Event;
  */
 class CpCss extends Plugin
 {
-
     /**
      * @var CpCss Self-referential plugin property.
      */
@@ -54,7 +53,7 @@ class CpCss extends Plugin
         Event::on(
             View::class,
             View::EVENT_BEFORE_RENDER_PAGE_TEMPLATE,
-            function (TemplateEvent $event) {
+            function(TemplateEvent $event) {
 
                 // Get view
                 $view = Craft::$app->getView();
@@ -69,7 +68,6 @@ class CpCss extends Plugin
                 if ($css) {
                     $view->registerCss($css);
                 }
-
             }
         );
     }
@@ -96,5 +94,4 @@ class CpCss extends Plugin
             'docsUrl' => $this->documentationUrl,
         ]);
     }
-
 }

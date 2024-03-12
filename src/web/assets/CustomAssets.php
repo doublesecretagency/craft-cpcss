@@ -24,7 +24,6 @@ use doublesecretagency\cpcss\models\Settings;
  */
 class CustomAssets extends AssetBundle
 {
-
     /**
      * @inheritdoc
      */
@@ -69,7 +68,6 @@ class CustomAssets extends AssetBundle
                 // Reference file without a hash
                 $this->css[] = $file;
             }
-
         }
     }
 
@@ -106,5 +104,4 @@ class CustomAssets extends AssetBundle
         // Return file with hash
         return "{$file}?e={$hash}";
     }
-
 }
