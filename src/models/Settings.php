@@ -19,7 +19,6 @@ use craft\base\Model;
  */
 class Settings extends Model
 {
-
     /**
      * @var string Path for the CSS file to load in the control panel.
      */
@@ -34,5 +33,4 @@ class Settings extends Model
      * @var bool Whether to enable the hash-based cache busting.
      */
     public bool $cacheBusting = true;
-
 }
