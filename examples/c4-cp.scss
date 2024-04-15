@@ -1,0 +1,128 @@
+/**
+ * Sass theme for Craft CMS 4 control panel
+ *
+ * 1. Set brand logo.
+ * 1. Set brand color.
+ * 2. Fine-tune theme colors (1-5).
+ * 3. Additional adjustments as you see fit!
+ */
+
+// Set brand logo
+$logo: url('/path/to/logo.png');
+
+// Main brand color
+$brand-color: #01406D;
+
+// Automatically generate a CP theme
+$theme-1: lighten($brand-color, 71%);
+$theme-2: lighten($brand-color, 68%);
+$theme-3: $brand-color;
+$theme-4: darken($brand-color, 6%);
+$theme-5: darken($brand-color, 11%);
+
+// ========================================================================= //
+
+// Login page
+body.login {
+  color: $theme-1 !important;
+  background: $theme-3;
+  h1 {
+    background-image: $logo !important;
+    background-position: center center !important;
+    background-repeat: no-repeat;
+    background-size: contain;
+    text-indent: -9999px;
+    width: 100%;
+    height: 120px;
+    display: block;
+    border-radius: 4px;
+  }
+  .btn.submit {
+    color: $theme-1 !important;
+    background-color: $theme-4 !important;
+    &:not(.disabled):not(.inactive) {
+      &:hover,
+      &.hover {
+        background-color: $theme-5 !important;
+      }
+      &:active,
+      &.active {
+        background-color: $theme-5 !important;
+      }
+    }
+  }
+  #password-fields,
+  #forgot-password,
+  #remember-password {
+    color: $theme-1 !important;
+  }
+  #poweredby {
+    opacity: 1;
+    path {
+      fill: $theme-1;
+    }
+  }
+}
+
+// Sidebar
+#global-sidebar {
+  background: $theme-3;
+  a {
+    color: $theme-1 !important;
+  }
+  > a,
+  :not(.has-subnav) > a {
+    &:hover,
+    &.active,
+    &:active {
+      background-color: $theme-4 !important;
+    }
+  }
+  :not(.has-subnav) > a.sel {
+    color: $theme-5 !important;
+    background-color: $theme-5 !important;
+  }
+
+  #system-info {
+    margin-top: 6px;
+    margin-right: 8px;
+    height: 60px;
+    flex: 0 0 74px;
+    background-color: $theme-3 !important;
+    background-image: $logo !important;
+    background-position: center center !important;
+    background-size: 60% auto !important;
+    background-repeat: no-repeat;
+    text-indent: -9999px;
+    #site-icon,
+    #system-name {
+      display: none;
+      h2:after {
+        background-image: none;
+      }
+    }
+  }
+}
+
+// Buttons
+.btn.submit {
+  color: $theme-1 !important;
+  background-color: $theme-3 !important;
+  &:not(.disabled):not(.inactive):not(.loading) {
+    &:hover,
+    &.hover,
+    &:focus {
+      background-color: $theme-4 !important;
+    }
+    &:active,
+    &.active,
+    &[aria-expanded=true] {
+      background-color: $theme-5 !important;
+    }
+  }
+}
+
+// // Hide the ever-present Utilities badge
+// li#nav-utilities a .badge {
+//    display: none;
+// }
