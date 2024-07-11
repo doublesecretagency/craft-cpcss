@@ -8,8 +8,8 @@
  */
 
 // Set brand logo
-$logoLarge: url('/path/to/logo-large.png'); // expanded sidebar
-$logoSmall: url('/path/to/logo-small.png'); // collapsed sidebar
+$logo-large: url('/path/to/logo-large.png'); // expanded sidebar
+$logo-small: url('/path/to/logo-small.png'); // collapsed sidebar
 
 // Main brand color
 $brand-color: #01406D;
@@ -27,7 +27,7 @@ $theme-5: darken($brand-color, 11%);
 body.login {
   background: $theme-3;
   h1 {
-    background-image: $logoLarge !important;
+    background-image: $logo-large !important;
     background-position: center center !important;
     background-repeat: no-repeat;
     background-size: contain;
@@ -74,13 +74,13 @@ body.login {
   background: $theme-3;
 
   &[data-state="expanded"] #system-info {
-    background-image: $logoLarge;
+    background-image: $logo-large;
     background-size: 60% auto;
     margin-right: 8px;
   }
 
   &[data-state="collapsed"] #system-info {
-    background-image: $logoSmall;
+    background-image: $logo-small;
     background-size: 80% auto;
   }
 
